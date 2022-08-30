@@ -1,0 +1,63 @@
+package com.mobile.store;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import com.mobile.store.dao.CustomerRepository;
+import com.mobile.store.dto.Customer;
+import com.mobile.store.exception.CartItemException;
+import com.mobile.store.exception.CustomerException;
+import com.mobile.store.exception.ProductException;
+import com.mobile.store.service.CustomerService;
+
+@SpringBootTest
+public class CustomerServiceTest {
+
+	@Autowired
+	CustomerRepository customerRepository;
+	
+	@Autowired
+	CustomerService customerService;
+	
+	@Test
+	public void addCustomeTest() throws CustomerException, CartItemException, ProductException {
+		Customer customer = new Customer("qwert", "qwerty@gmail.com", "1234567890", "asdfghj","123456");
+		this.customerService.addCustomer(customer);
+		Customer newCustomer = this.customerService.findByCustomerEmail(customer.getCustomerEmail());
+		assertNotNull(newCustomer);
+		assertEquals("customer delete sucessfully.", this.customerService.deleteCustomerById(newCustomer.getCustomerId(), "123456"));
+	}
+	
+	@Test
+	public void deleteCustomerByIdTest() throws CustomerException, CartItemException, ProductException {
+		Customer customer = new Customer("qwert", "qwerty@gmail.com", "1234567890", "asdfghj","123456");
+		this.customerService.addCustomer(customer);
+		Customer newCustomer = this.customerService.findByCustomerEmail(customer.getCustomerEmail());
+		assertNotNull(newCustomer);
+		assertEquals("customer delete sucessfully.", this.customerService.deleteCustomerById(newCustomer.getCustomerId(), "123456"));
+	}
+	
+	
+	@Test
+	public void getCustomerByIdTest() throws CustomerException, CartItemException, ProductException {
+		Customer customer = new Customer("qwert", "qwerty@gmail.com", "1234567890", "asdfghj","123456");
+		this.customerService.addCustomer(customer);
+		Customer newCustomer = this.customerService.findByCustomerEmail(customer.getCustomerEmail());
+		assertNotNull(newCustomer);
+		assertEquals("customer delete sucessfully.", this.customerService.deleteCustomerById(newCustomer.getCustomerId(), "123456"));
+	}
+
+	@Test
+	public void updateCustomerTest() throws CustomerException, CartItemException, ProductException {
+		Customer customer = new Customer("qwert", "qwerty@gmail.com", "1234567890", "asdfghj","123456");
+		this.customerService.addCustomer(customer);
+		Customer update = new Customer("qwert", "qwerty@gmail.com", "1234567890", "delhi","123456");
+		this.customerService.updateCustomer(update);
+		Customer newCustomer = this.customerService.findByCustomerEmail(customer.getCustomerEmail());
+		assertEquals("customer delete sucessfully.", this.customerService.deleteCustomerById(newCustomer.getCustomerId(), "123456"));
+	}
+}

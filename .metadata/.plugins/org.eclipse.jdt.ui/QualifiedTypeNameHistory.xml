@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="com.mobile.store.exception.ProductException"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="com.mobile.store.dto.CartItemPrice"/>
+    <fullyQualifiedTypeName name="org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest"/>
+    <fullyQualifiedTypeName name="org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase"/>
+    <fullyQualifiedTypeName name="org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace"/>
+    <fullyQualifiedTypeName name="org.springframework.test.annotation.Rollback"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="com.mobile.store.dao.WishlistRepository"/>
+    <fullyQualifiedTypeName name="org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager"/>
+    <fullyQualifiedTypeName name="com.mobile.store.dto.Product"/>
+    <fullyQualifiedTypeName name="com.mobile.store.dto.Wishlist"/>
+    <fullyQualifiedTypeName name="com.mobile.store.service.WishlistService"/>
+    <fullyQualifiedTypeName name="org.springframework.boot.test.context.SpringBootTest"/>
+    <fullyQualifiedTypeName name="com.mobile.store.dao.CustomerRepository"/>
+    <fullyQualifiedTypeName name="com.mobile.store.dao.ProductRepository"/>
+    <fullyQualifiedTypeName name="com.mobile.store.service.CartItemService"/>
+    <fullyQualifiedTypeName name="org.junit.jupiter.api.Test"/>
+    <fullyQualifiedTypeName name="com.mobile.store.service.CustomerService"/>
+    <fullyQualifiedTypeName name="com.mobile.store.dao.OrderRepository"/>
+    <fullyQualifiedTypeName name="javax.transaction.Transactional"/>
+    <fullyQualifiedTypeName name="com.mobile.store.dto.Customer"/>
+</qualifiedTypeNameHistroy>

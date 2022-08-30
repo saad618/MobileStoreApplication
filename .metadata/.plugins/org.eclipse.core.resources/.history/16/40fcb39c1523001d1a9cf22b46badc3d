@@ -1,0 +1,102 @@
+package com.mobile.store;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import com.mobile.store.dao.ProductRepository;
+import com.mobile.store.dto.Product;
+import com.mobile.store.exception.ProductException;
+import com.mobile.store.service.ProductService;
+
+@SpringBootTest
+public class ProductServiceTest {
+
+	@Autowired
+	 ProductService productService;
+	@Autowired
+	ProductRepository productRepository;
+	
+	@Test
+	void addProductTest() throws ProductException{
+		assertThrows(ProductException.class, ()-> this.productService.addProduct(null));
+		Product product = new Product("pant","bhot aacha",20.0);
+		assertNotNull(this.productService.addProduct(product));
+		Product newproduct = this.productRepository.findProductByProductNameStartsWith(product.getProductName()).get(0);
+		assertThrows(ProductException.class, ()-> this.productService.addProduct(null));
+		assertEquals(true, this.productService.deleteProductById(newproduct.getProductId()));
+	}
+	
+//	
+//	@Test
+//	void deleteProductByIdTest() throws ProductException{
+//		assertThrows(ProductException.class, ()-> this.productService.addProduct(null));
+//		Product product = new Product("Nokia", "5233", 10000.0,1);
+//		assertNotNull(this.productService.addProduct(product));
+//		Product newproduct = this.productRepository.findProductByProductNameStartsWith(product.getProductName()).get(0);
+//		//assertThrows(ProductException.class, ()-> this.productService.addProduct(null));
+//		assertEquals(true, this.productService.deleteProductById(newproduct.getProductId()));
+//	}
+//
+//	
+//	
+//	@Test
+//	void getProductByIdTest() throws ProductException{
+//		assertThrows(ProductException.class, ()-> this.productService.addProduct(null));
+//		Product product = new Product("Nokia", "5233", 10000.0,1);
+//		assertNotNull(this.productService.addProduct(product));
+//		Product newproduct = this.productRepository.findProductByProductNameStartsWith(product.getProductName()).get(0);
+//		assertNotNull(this.productService.getProductById(newproduct.getProductId()));
+//		assertEquals(true, this.productService.deleteProductById(newproduct.getProductId()));
+//        
+//	}
+//	
+//	@Test
+//	void getAllProductTest() throws ProductException{
+//		assertThrows(ProductException.class, ()-> this.productService.addProduct(null));
+//		Product product = new Product("Nokia", "5233", 10000.0,1);
+//		assertNotNull(this.productService.addProduct(product));
+//		Product newproduct = this.productRepository.findProductByProductNameStartsWith(product.getProductName()).get(0);
+//		assertNotNull(this.productService.getAllProduct());
+//		assertEquals(true, this.productService.deleteProductById(newproduct.getProductId()));
+//        
+//	}
+//	@Test
+//	void findAllProductHighToLowTest() throws ProductException{
+//		assertThrows(ProductException.class, ()-> this.productService.addProduct(null));
+//		Product product = new Product("Nokia", "5233", 10000.0,1);
+//		assertNotNull(this.productService.addProduct(product));
+//		Product newproduct = this.productRepository.findProductByProductNameStartsWith(product.getProductName()).get(0);
+//		assertNotNull(this.productService.findAllProductHighToLow());
+//		assertEquals(true, this.productService.deleteProductById(newproduct.getProductId()));
+//        
+//	}
+//	@Test
+//	void findAllProductLowToHighTest() throws ProductException{
+//		assertThrows(ProductException.class, ()-> this.productService.addProduct(null));
+//		Product product = new Product("Nokia", "5233", 10000.0,1);
+//		assertNotNull(this.productService.addProduct(product));
+//		Product newproduct = this.productRepository.findProductByProductNameStartsWith(product.getProductName()).get(0);
+//		assertNotNull(this.productService.findAllProductLowToHigh());
+//		assertEquals(true, this.productService.deleteProductById(newproduct.getProductId()));
+//        
+//	}
+//	
+//	@Test
+//	void findProductByNameTest() throws ProductException{
+//		assertThrows(ProductException.class, ()-> this.productService.addProduct(null));
+//		Product product = new Product("Nokia", "5", 10000.0,1);
+//		assertNotNull(this.productService.addProduct(product));
+//		Product newproduct = this.productRepository.findProductByProductNameStartsWith(product.getProductName()).get(0);
+//		assertNotNull(this.productService.findProductByName(newproduct.getProductName()));
+//		assertEquals(true, this.productService.deleteProductById(newproduct.getProductId()));
+//        
+//	}
+//	
+	
+}
